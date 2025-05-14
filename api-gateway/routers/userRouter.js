@@ -16,7 +16,6 @@ usersRouter.get('/', async (req, res) => {
 
 usersRouter.post('/create', async (req, res) => {
     try {
-        console.log(req.body)
         const apiRes = await axios.post(server + 'create', req.body)
         res.status(apiRes.status).json(apiRes.data)
     } catch (err) {
