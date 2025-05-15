@@ -5,6 +5,7 @@ export const authRouter = Router()
 
 const server = 'http://localhost:5001/api/auth/'
 
+// Controller in /services/user-service/authController
 authRouter.post('/login', async (req, res) => {
     try {
         const apiRes = await axios.post(server + 'login', req.body);

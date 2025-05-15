@@ -5,6 +5,7 @@ const server = 'http://localhost:5001/api/users/';
 
 export const usersRouter = Router();
 
+// Controller in /services/user-service/userGetAllController
 usersRouter.get('/', async (req, res) => {
     try {
         const apiRes = await axios.get(server)
@@ -14,6 +15,7 @@ usersRouter.get('/', async (req, res) => {
     }
 })
 
+// Controller in /services/user-service/userCreateController
 usersRouter.post('/create', async (req, res) => {
     try {
         const apiRes = await axios.post(server + 'create', req.body)
@@ -23,6 +25,7 @@ usersRouter.post('/create', async (req, res) => {
     }
 })
 
+// Controller in /services/user-service/userGetOneController
 usersRouter.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -33,6 +36,7 @@ usersRouter.get('/:id', async (req, res) => {
     }
 })
 
+// Controller in /services/user-service/userPatchController
 usersRouter.patch('/:id', async (req, res) => {
     const { id } = req.params;
     const updateData = req.body;
@@ -45,6 +49,7 @@ usersRouter.patch('/:id', async (req, res) => {
     }
 })
 
+// Controller in /services/user-service/userDeleteController
 usersRouter.delete('/:id', async (req, res) => {
     const { id } = req.params;
     
