@@ -22,3 +22,36 @@ usersRouter.post('/create', async (req, res) => {
         res.status(500).json({ error: err })
     }
 })
+
+usersRouter.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const apiRes = await axios.get(server + id)
+        res.status(apiRes.status).json(apiRes.data)
+    } catch (err) {
+        res.status(500).json({ error: err })
+    }
+})
+
+usersRouter.patch('/:id', async (req, res) => {
+    const { id } = req.params;
+    const updateData = req.body;
+
+    try {
+        const apiRes = await axios.patch(server + id, updateData)
+        res.status(apiRes.status).json(apiRes.data);
+    } catch (err) {
+        res.status(500).json({ error: err })
+    }
+})
+
+usersRouter.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    
+    try {
+        const apiRes = await axios.delete(server + id)
+        res.status(200).json(apiRes.data)
+    } catch (err) {
+        res.status(500).json({ error: err })
+    }
+})
