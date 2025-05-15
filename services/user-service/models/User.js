@@ -8,7 +8,6 @@ const UserSchema = new Schema({
     userStatus: String,
     userCell: String,
     userExt: String,
-    userEmail: String,
     trsTime: Date,
     companyId: mongoose.Schema.Types.ObjectId,
     userTypeId: mongoose.Schema.Types.ObjectId,
