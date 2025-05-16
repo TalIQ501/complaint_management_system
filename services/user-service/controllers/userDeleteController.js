@@ -10,6 +10,6 @@ export const userDeleteController = async (req, res) => {
 
         return res.status(200).json({ message: `User deleted` })
     } catch (err) {
-        res.status(500).json({ error: err || 'Something went wrong' })
+        return res.status(500).json({ error: 'Could not delete user' || 'Something went wrong' })
     }
 }

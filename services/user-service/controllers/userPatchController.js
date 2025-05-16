@@ -14,6 +14,6 @@ export const userPatchController = async (req, res) => {
 
         res.status(200).json({ message: "Data Updated" })
     } catch (err) {
-        res.status(500).json({ error: err })
+        res.status(500).json({ error: 'Something went wrong' })
     }
 }

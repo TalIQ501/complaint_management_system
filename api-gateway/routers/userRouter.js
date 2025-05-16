@@ -3,6 +3,8 @@ import { Router } from "express";
 
 const server = 'http://localhost:5001/api/users/';
 
+const errorMsg = { error: 'User Service failed' }
+
 export const usersRouter = Router();
 
 // Controller in /services/user-service/userGetAllController
@@ -11,7 +13,9 @@ usersRouter.get('/', async (req, res) => {
         const apiRes = await axios.get(server)
         res.status(apiRes.status).json(apiRes.data)
     } catch (err) {
-        res.status(500).json({ error: err })
+        const resStatus = err.response.status || 500
+        const resMsg = { error: err.response.data.error } || errorMsg
+        res.status(resStatus).json(resMsg)
     }
 })
 
@@ -21,7 +25,9 @@ usersRouter.post('/create', async (req, res) => {
         const apiRes = await axios.post(server + 'create', req.body)
         res.status(apiRes.status).json(apiRes.data)
     } catch (err) {
-        res.status(500).json({ error: err })
+        const resStatus = err.response.status || 500
+        const resMsg = { error: err.response.data.error} || errorMsg
+        res.status(resStatus).json(resMsg)
     }
 })
 
@@ -32,7 +38,9 @@ usersRouter.get('/:id', async (req, res) => {
         const apiRes = await axios.get(server + id)
         res.status(apiRes.status).json(apiRes.data)
     } catch (err) {
-        res.status(500).json({ error: err })
+        const resStatus = err.response.status || 500
+        const resMsg = { error: err.response.data.error } || errorMsg
+        res.status(resStatus).json(resMsg)
     }
 })
 
@@ -45,7 +53,9 @@ usersRouter.patch('/:id', async (req, res) => {
         const apiRes = await axios.patch(server + id, updateData)
         res.status(apiRes.status).json(apiRes.data);
     } catch (err) {
-        res.status(500).json({ error: err })
+        const resStatus = err.response.status || 500
+        const resMsg = { error: err.response.data.error } || errorMsg
+        res.status(resStatus).json(resMsg)
     }
 })
 
@@ -57,6 +67,8 @@ usersRouter.delete('/:id', async (req, res) => {
         const apiRes = await axios.delete(server + id)
         res.status(200).json(apiRes.data)
     } catch (err) {
-        res.status(500).json({ error: err })
+        const resStatus = err.response.status || 500
+        const resMsg = { error: err.response.data.error } || errorMsg
+        res.status(resStatus).json(resMsg)
     }
 })
