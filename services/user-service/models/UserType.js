@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const UserTypeSchema = new Schema({
-    user_type: String,
-    trs_time: Date,
+    userType: String,
+    trsTime: Date
 })
+
+export const UserType = mongoose.model('UserType', UserTypeSchema)
