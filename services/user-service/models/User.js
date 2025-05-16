@@ -5,9 +5,13 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     userName : {
         type: String,
-        unique: true
+        unique: true,
+        required: true
     },
-    userPwd: String,
+    userPwd: {
+        type: String,
+        required: true
+    },
     userStatus: String,
     userCell: String,
     userExt: String,
