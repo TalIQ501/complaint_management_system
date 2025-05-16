@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import { User } from "../models/User.js"
+import { User } from "../../models/User.js"
 
 export const userGetOneController = async (req, res) => {
     const { id } = req.params;

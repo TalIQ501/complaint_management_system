@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { authController } from "../controllers/authController.js";
-import { userCreateController } from "../controllers/userCreateController.js";
-import { userGetAllController } from "../controllers/userGetAllController.js";
-import { userPatchController } from "../controllers/userPatchController.js";
-import { userGetOneController } from "../controllers/userGetOneController.js";
-import { userDeleteController } from "../controllers/userDeleteController.js";
+import { authController } from "../controllers/authControllers/authController.js";
+import { userCreateController } from "../controllers/userTypeControllers/userCreateController.js";
+import { userGetAllController } from "../controllers/userTypeControllers/userGetAllController.js";
+import { userPatchController } from "../controllers/userTypeControllers/userPatchController.js";
+import { userGetOneController } from "../controllers/userTypeControllers/userGetOneController.js";
+import { userDeleteController } from "../controllers/userTypeControllers/userDeleteController.js";
 
 export const router = Router();
 
