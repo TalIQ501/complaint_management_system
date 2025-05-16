@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
 import morgan from "morgan"
-import { router } from "./routers/router.js"
+import { routerIndex } from "./routers/router.js"
 
 dotenv.config()
 
@@ -13,7 +13,7 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(cors())
 app.use(morgan("combined"))
-app.use('/api', router)
+app.use('/api', routerIndex)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {

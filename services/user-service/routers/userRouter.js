@@ -7,8 +7,8 @@ import { userDeleteController } from "../controllers/userControllers/userDeleteC
 
 export const usersRouter = Router();
 
-usersRouter.get('/users/', userGetAllController)
-usersRouter.post('/users/create', userCreateController)
-usersRouter.get('/users/:id', userGetOneController)
-usersRouter.patch('/users/:id', userPatchController)
-usersRouter.delete('/users/:id', userDeleteController)
+usersRouter.get('/', userGetAllController)
+usersRouter.post('/create', userCreateController)
+usersRouter.get('/:id', userGetOneController)
+usersRouter.patch('/:id', userPatchController)
+usersRouter.delete('/:id', userDeleteController)
