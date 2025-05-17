@@ -1,7 +1,10 @@
 import axios from "axios";
+import dotenv from "dotenv"
 import { Router } from "express";
 
-const server = 'http://localhost:5001/api/users/';
+dotenv.config()
+
+const server = `${process.env.USER_SERVER}/users/`;
 
 const errorMsg = { error: 'User Service failed' }
 

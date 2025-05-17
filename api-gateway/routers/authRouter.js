@@ -1,11 +1,14 @@
 import axios from "axios";
+import dotenv from "dotenv";
 import { Router } from "express";
+
+dotenv.config()
 
 export const authRouter = Router()
 
 const errorMsg = { error: 'Auth service failed' }
 
-const server = 'http://localhost:5001/api/auth/'
+const server = `${process.env.USER_SERVER}/auth/`;
 
 // Controller in /services/user-service/authController
 authRouter.post('/login', async (req, res) => {
