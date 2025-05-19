@@ -9,8 +9,11 @@ export const authController = async (req, res) => {
 
         if (!user) return res.status(401).json({ error: 'Invalid credentials' })
     
-        return res.status(200).json({ message: "Login Successful" })
+        return res.status(200).json({ 
+            message: "Login Successful",
+            token: 'jwt'
+        })
     } catch (err) {
-        res.status(500).json({ error: err })
+        res.status(500).json({ error: 'Auth service error' })
     }
 }

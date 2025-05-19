@@ -1,6 +1,7 @@
 import { Router } from "express";
 import proxy from "express-http-proxy";
 import { config as dotenvConfig } from "dotenv";
+import { authMiddleware } from "../middleware/authMiddleware.js";
 
 dotenvConfig()
 
@@ -16,6 +17,8 @@ const createProxy = (target) => {
 }
 
 serviceRouter.use('/auth/', createProxy(process.env.USER_SERVER))
-serviceRouter.use('/users/', createProxy(process.env.USER_SERVER))
-serviceRouter.use('/usertype/', createProxy(process.env.USER_SERVER))
-serviceRouter.use('/companies/', createProxy(process.env.COMPANY_SERVER))
+
+//Protected routes
+serviceRouter.use('/users/', authMiddleware, createProxy(process.env.USER_SERVER))
+serviceRouter.use('/usertype/', authMiddleware, createProxy(process.env.USER_SERVER))
+serviceRouter.use('/companies/', authMiddleware, createProxy(process.env.COMPANY_SERVER))
