@@ -1,23 +1,23 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import dotenv from "dotenv"
+import { config as dotenvConfig } from "dotenv"
 import { serviceRouter } from "./routers/serviceRouter.js";
 
-dotenv.config()
+dotenvConfig();
 
-const app = express()
-const PORT = process.env.PORT
+const app = express();
+const PORT = process.env.PORT;
 
-app.use(express.json())
+app.use(express.json({ urlencoded: true }));
 app.use(cors());
 app.use(helmet());
-app.use(morgan("combined"))
-app.disable("x-powered-by")
+app.use(morgan("combined"));
+app.disable("x-powered-by");
 
-app.use('/api', serviceRouter)
+app.use('/api', serviceRouter);
 
 app.listen(PORT, () => {
-    console.log("API Gateway running on Port " + PORT)
+    console.log("API Gateway running on Port " + PORT);
 })

@@ -1,13 +1,21 @@
 import { Router } from "express";
-import { authRouter } from "./authRouter.js";
-import { usersRouter } from "./userRouter.js";
-import { userTypeRouter } from "./userTypeRouter.js";
-import { companyRouter } from "./companyRouter.js";
+import proxy from "express-http-proxy";
+import { config as dotenvConfig } from "dotenv";
+
+dotenvConfig()
 
 export const serviceRouter = Router();
 
-serviceRouter.use('/auth', authRouter)
-serviceRouter.use('/users', usersRouter)
-serviceRouter.use('/usertype', userTypeRouter)
-serviceRouter.use('/companies', companyRouter)
+const createProxy = (target) => {
+    return proxy(target, {
+        proxyReqPathResolver: req => {
+            const path = req.originalUrl.slice(4)
+            return path
+        }
+    })
+}
 
+serviceRouter.use('/auth/', createProxy(process.env.USER_SERVER))
+serviceRouter.use('/users/', createProxy(process.env.USER_SERVER))
+serviceRouter.use('/usertype/', createProxy(process.env.USER_SERVER))
+serviceRouter.use('/companies/', createProxy(process.env.COMPANY_SERVER))
