@@ -1,16 +1,16 @@
 import mongoose from "mongoose"
-import { User } from "../../models/User.js"
+import { UserType } from "../../models/UserType.js"
 
-export const userPatchController = async (req, res) => {
+export const patchUserTypeController = async (req, res) => {
     const { id } = req.params
     try {
-        const user = await User.findOneAndUpdate(
+        const userType = await UserType.findOneAndUpdate(
             { _id: id }, 
             { $set: req.body }, 
             { new: true, runValidators: true }
         )
 
-        if (!user) return res.status(404).json({ error: "User not found" })
+        if (!userType) return res.status(404).json({ error: "User type not found" })
 
         res.status(200).json({ message: "Data Updated" })
     } catch (err) {

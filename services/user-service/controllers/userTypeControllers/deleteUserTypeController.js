@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import { UserType } from "../../models/UserType.js"
 
-export const userTypeDeleteController = async (req, res) => {
+export const deleteUserTypeController = async (req, res) => {
     const { id } = req.params;
     try {
         const userType = await UserType.findByIdAndDelete(id)
@@ -10,6 +10,6 @@ export const userTypeDeleteController = async (req, res) => {
 
         return res.status(200).json({ message: `User type deleted` })
     } catch (err) {
-        return res.status(500).json({ error: 'Could not delete user type' || 'Something went wrong' })
+        return res.status(500).json({ error: 'Something went wrong' })
     }
 }

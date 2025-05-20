@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import { UserType } from "../../models/UserType.js"
 
-export const userTypeCreateController = async (req, res) => {
+export const registerUserTypeController = async (req, res) => {
     try {
         const newUserType = new UserType(req.body)
         await newUserType.save()

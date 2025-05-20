@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import { UserType } from "../../models/UserType.js";
 
-export const userTypeGetOneController = async (req, res) => {
+export const getOneUserTypeController = async (req, res) => {
     const { id } = req.params;
     try {
         const userType = await UserType.findById(id)

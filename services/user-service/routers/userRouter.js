@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { userCreateController } from "../controllers/userControllers/userCreateController.js";
-import { userGetAllController } from "../controllers/userControllers/userGetAllController.js";
-import { userPatchController } from "../controllers/userControllers/userPatchController.js";
-import { userGetOneController } from "../controllers/userControllers/userGetOneController.js";
-import { userDeleteController } from "../controllers/userControllers/userDeleteController.js";
+import { registerUserController } from "../controllers/userControllers/registerUserController.js";
+import { getAllUserController } from "../controllers/userControllers/getAllUserController.js";
+import { patchUserController } from "../controllers/userControllers/patchUserController.js";
+import { getOneUserController } from "../controllers/userControllers/getOneUserController.js";
+import { deleteUserController } from "../controllers/userControllers/deleteUserController.js";
 
 export const usersRouter = Router();
 
-usersRouter.get('/', userGetAllController)
-usersRouter.post('/create', userCreateController)
-usersRouter.get('/:id', userGetOneController)
-usersRouter.patch('/:id', userPatchController)
-usersRouter.delete('/:id', userDeleteController)
+usersRouter.get('/', getAllUserController)
+usersRouter.post('/register', registerUserController)
+usersRouter.get('/:id', getOneUserController)
+usersRouter.patch('/:id', patchUserController)
+usersRouter.delete('/:id', deleteUserController)

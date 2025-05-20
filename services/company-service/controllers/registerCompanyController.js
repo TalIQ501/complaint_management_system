@@ -1,6 +1,6 @@
 import { Company } from '../models/Company.js'
 
-export const createCompanyController = async (req, res) => {
+export const registerCompanyController = async (req, res) => {
     try {
         const newCompany = new Company(req.body);
         await newCompany.save()
