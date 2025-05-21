@@ -7,7 +7,7 @@ export const registerUserTypeController = async (req, res) => {
         await newUserType.save()
         return res.status(201).json({ message: `User ${newUserType.userType} saved` })
     } catch (err) {
-        if (err.code === 11000 && err.keyPattern?.userName) {
+        if (err.code === 11000 && err.keyPattern?.userType) {
             return res.status(409).json({ error: "User type already created" })
         }
         res.status(500).json({ error: 'Could not create user type' })
