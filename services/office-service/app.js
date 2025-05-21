@@ -1,11 +1,11 @@
 import mongoose from "mongoose"
-import dotenv from "dotenv"
+import { config as dotenvConfig } from "dotenv"
 import express from "express"
 import cors from "cors"
 import morgan from "morgan"
 import { routerIndex } from "./routers/router.js"
 
-dotenv.config()
+dotenvConfig()
 
 const app = express()
 const PORT = process.env.PORT
