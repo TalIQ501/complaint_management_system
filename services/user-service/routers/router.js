@@ -9,4 +9,4 @@ routerIndex.use('/auth', authRouter)
 
 routerIndex.use('/users', usersRouter)
 
-routerIndex.use('/usertype', userTypeRouter)
+routerIndex.use('/user-type', userTypeRouter)
