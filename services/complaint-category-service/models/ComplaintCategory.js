@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const ComplaintCategorySchema = new Schema({
     category: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     trsTime: Date,
     subCategories: [ComplaintSubCategorySchema]
