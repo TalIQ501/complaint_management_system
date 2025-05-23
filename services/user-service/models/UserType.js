@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const UserTypeSchema = new Schema({
     userType: String,
+    userLevel: Number,
     trsTime: Date
 })
 
