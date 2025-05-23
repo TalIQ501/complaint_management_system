@@ -24,4 +24,6 @@ serviceRouter.use('/user-type/', authMiddleware, createProxy(process.env.USER_SE
 serviceRouter.use('/companies/', authMiddleware, createProxy(process.env.COMPANY_SERVER))
 serviceRouter.use('/offices/', authMiddleware, createProxy(process.env.OFFICE_SERVER))
 serviceRouter.use('/office-alloc/', authMiddleware, createProxy(process.env.OFFICE_SERVER))
+serviceRouter.use('/buildings/', authMiddleware, createProxy(process.env.OFFICE_SERVER))
 serviceRouter.use('/complaint-categories', authMiddleware, createProxy(process.env.COMPLAINT_CATEGORY_SERVER))
+serviceRouter.use('/complaints', authMiddleware, createProxy(process.env.COMPLAINT_SERVER))
